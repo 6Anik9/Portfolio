@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD ANiK SHEiKH | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #050505;      
+            --glass: rgba(15, 15, 18, 0.95); 
+            --accent: #3b82f6; 
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --text-main: #ffffff;
+            --text-dim: #88888b;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .aurora {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; filter: blur(100px); opacity: 0.15;
+        }
+
+        .blob {
+            position: absolute; width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            animation: drift 20s infinite alternate;
+        }
+
+        @keyframes drift { from { transform: translate(-10%, -10%); } to { transform: translate(10%, 10%); } }
+
+        .container {
+            max-width: 900px; width: 100%;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 50px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+        }
+
+        .profile-header {
+            text-align: left;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            line-height: 1; letter-spacing: -2px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff, #777);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text .title-sub { 
+            color: var(--accent); 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            letter-spacing: 4px; 
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        .profile-img {
+            width: 110px; height: 110px; border-radius: 50%;
+            background: #111; 
+            border: 1px solid var(--border);
+            box-shadow: 0 0 30px var(--accent-glow);
+            background-image: url('https://lh3.googleusercontent.com/d/1uLx9wFgSuiV5IJIId9mNE-Ln8J6lk3of');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
+
+        h3 {
+            font-size: 0.65rem; color: var(--text-dim);
+            text-transform: uppercase; letter-spacing: 3px;
+            margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+        }
+
+        h3 i { color: var(--accent); font-size: 0.8rem; }
+
+        .sidebar-item { margin-bottom: 35px; }
+
+        .skill-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.8rem; }
+        .bar-bg { width: 80px; height: 2px; background: #222; border-radius: 10px; overflow: hidden; }
+        
+        .bar-fill { 
+            height: 100%; 
+            background: var(--accent); 
+            width: 0; 
+            animation: growBar 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+        }
+
+        @keyframes growBar {
+            from { width: 0; }
+            to { width: var(--target-width); }
+        }
+
+        .footer-flex {
+            margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border);
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+
+        .social-media { display: flex; gap: 25px; }
+        .social-media a { color: var(--text-dim); font-size: 1.6rem; transition: 0.3s; }
+        .social-media a:hover { color: var(--accent); transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .layout { grid-template-columns: 1fr; }
+            .profile-header { flex-direction: column-reverse; align-items: center; text-align: center; }
+            .hero-text .title-sub { margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora"><div class="blob"></div></div>
+
+    <div class="container">
+        <header class="profile-header">
+            <div class="hero-text">
+                <h1>MD ANiK SHEiKH</h1>
+                <p class="title-sub">Basic IT Expert</p>
+            </div>
+            <div class="profile-img"></div>
+        </header>
+
+        <div class="layout">
+            <aside>
+                <div class="sidebar-item">
+                    <h3><i class="fa-solid fa-location-dot"></i> Location</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-dim);">Chandpur, Bangladesh</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Expertise</h3>
+                    <div class="skill-row"><span>Supervision</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
+                    <div class="skill-row"><span>Leadership</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
+                    <div class="skill-row"><span>Communication</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
+                </div>
+            </aside>
+
+            <main>
+                <div class="sidebar-item">
+                    <h3><i class="fa-solid fa-bolt"></i> Skills</h3>
+                    <div class="skill-row"><span>Negotiation</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
+                    <div class="skill-row"><span>Web / HTML</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 45%;"></div></div></div>
+                    <div class="skill-row"><span>CSS / Python</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 40%;"></div></div></div>
+                </div>
+
+                <div class="sidebar-item">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                    <div class="skill-row"><span>DCSE (CGPA 3.56)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 92%;"></div></div></div>
+                    <div class="skill-row"><span>HSC (GPA 4.23)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 76%;"></div></div></div>
+                    <div class="skill-row"><span>SSC (GPA 4.57)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 70%;"></div></div></div>
+                </div>
+            </main>
+        </div>
+
+        <div class="footer-flex">
+            <div class="social-media">
+                <a href="https://instagram.com/6mdaniksheikh9" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/6anik9" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
