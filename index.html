@@ -6,12 +6,13 @@
     <title>MD ANiK SHEiKH | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-bg: #050505;      
             --glass: rgba(15, 15, 18, 0.95); 
             --accent: #3b82f6; 
-            --accent-glow: rgba(59, 130, 246, 0.4);
+            --accent-glow: rgba(59, 130, 246, 0.5);
             --text-main: #ffffff;
             --text-dim: #88888b;
             --border: rgba(255, 255, 255, 0.08);
@@ -44,94 +45,160 @@
         @keyframes drift { from { transform: translate(-10%, -10%); } to { transform: translate(10%, 10%); } }
 
         .container {
-            max-width: 900px; width: 100%;
+            max-width: 800px; width: 100%;
             background: var(--glass);
             border: 1px solid var(--border);
             border-radius: 30px;
-            padding: 50px;
+            padding: 40px;
             backdrop-filter: blur(20px);
             box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .profile-header {
-            text-align: left;
-            margin-bottom: 50px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 30px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            gap: 40px;
         }
 
         .hero-text h1 {
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
-            line-height: 1; letter-spacing: -2px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
             text-transform: uppercase;
-            background: linear-gradient(to bottom, #fff, #777);
+            letter-spacing: -1px;
+            background: linear-gradient(to bottom, #fff, #888);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .hero-text .title-sub { 
+        .title-sub { 
             color: var(--accent); 
             font-weight: 700; 
-            font-size: 0.85rem; 
-            letter-spacing: 4px; 
-            margin-top: 15px;
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
             text-transform: uppercase;
+            margin-top: 10px;
         }
 
         .profile-img {
             width: 110px; height: 110px; border-radius: 50%;
-            background: #111; 
-            border: 1px solid var(--border);
-            box-shadow: 0 0 30px var(--accent-glow);
-            background-image: url('https://lh3.googleusercontent.com/d/1uLx9wFgSuiV5IJIId9mNE-Ln8J6lk3of');
-            background-size: cover;
-            background-position: center;
+            background-image: url('https://github.com/6anik9.png');
+            background-size: cover; background-position: center;
+            box-shadow: 0 0 25px var(--accent-glow);
+            animation: pulse 3s infinite alternate;
+            flex-shrink: 0;
+            border: none;
         }
 
-        .layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px var(--accent-glow); }
+            100% { box-shadow: 0 0 35px var(--accent-glow); }
+        }
+
+        .section { margin-bottom: 35px; }
 
         h3 {
-            font-size: 0.65rem; color: var(--text-dim);
+            font-size: 0.65rem; color: var(--accent);
             text-transform: uppercase; letter-spacing: 3px;
-            margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+            margin-bottom: 15px; display: flex; align-items: center; gap: 10px;
         }
 
-        h3 i { color: var(--accent); font-size: 0.8rem; }
+        .content-text { font-size: 0.9rem; line-height: 1.6; color: var(--text-dim); }
 
-        .sidebar-item { margin-bottom: 35px; }
+        .skill-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.85rem; }
+        .bar-bg { width: 120px; height: 3px; background: #1a1a1a; border-radius: 5px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--accent); width: var(--w); }
 
-        .skill-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.8rem; }
-        .bar-bg { width: 80px; height: 2px; background: #222; border-radius: 10px; overflow: hidden; }
-        
-        .bar-fill { 
-            height: 100%; 
-            background: var(--accent); 
-            width: 0; 
-            animation: growBar 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
-        }
-
-        @keyframes growBar {
-            from { width: 0; }
-            to { width: var(--target-width); }
-        }
-
-        .footer-flex {
-            margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border);
+        /* CLASSIC PREMIUM PROJECT CARD */
+        .project-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            padding: 30px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border);
+            text-decoration: none; 
             display: flex; 
-            justify-content: center; 
+            justify-content: space-between; 
             align-items: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-media { display: flex; gap: 25px; }
-        .social-media a { color: var(--text-dim); font-size: 1.6rem; transition: 0.3s; }
-        .social-media a:hover { color: var(--accent); transform: scale(1.1); }
+        .project-card:hover { 
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(10px);
+        }
 
-        @media (max-width: 768px) {
-            .layout { grid-template-columns: 1fr; }
-            .profile-header { flex-direction: column-reverse; align-items: center; text-align: center; }
-            .hero-text .title-sub { margin-bottom: 20px; }
+        .project-info h4 { 
+            color: #fff; 
+            margin-bottom: 8px; 
+            font-size: 1.1rem; 
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .project-info p { 
+            font-size: 0.8rem; 
+            color: var(--text-dim); 
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .project-info p {
+            color: var(--accent);
+        }
+
+        .project-link-icon {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            transition: all 0.4s ease;
+            opacity: 0.5;
+            transform: translateX(-10px);
+        }
+
+        .project-card:hover .project-link-icon {
+            opacity: 1;
+            color: #fff;
+            transform: translateX(0);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .footer {
+            margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .dev-credit { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .socials { display: flex; justify-content: center; gap: 20px; }
+        .socials a { color: var(--text-dim); font-size: 1.2rem; transition: 0.3s; }
+        .socials a:hover { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            .profile-header { flex-direction: column-reverse; text-align: center; }
+            .container { padding: 30px 20px; }
+            .project-card:hover { transform: translateY(-5px); }
         }
     </style>
 </head>
@@ -148,45 +215,60 @@
             <div class="profile-img"></div>
         </header>
 
-        <div class="layout">
-            <aside>
-                <div class="sidebar-item">
-                    <h3><i class="fa-solid fa-location-dot"></i> Location</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-dim);">Chandpur, Bangladesh</p>
-                </div>
-
-                <div class="sidebar-item">
-                    <h3><i class="fa-solid fa-shield-halved"></i> Expertise</h3>
-                    <div class="skill-row"><span>Supervision</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
-                    <div class="skill-row"><span>Leadership</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
-                    <div class="skill-row"><span>Communication</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
-                </div>
-            </aside>
-
-            <main>
-                <div class="sidebar-item">
-                    <h3><i class="fa-solid fa-bolt"></i> Skills</h3>
-                    <div class="skill-row"><span>Negotiation</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 100%;"></div></div></div>
-                    <div class="skill-row"><span>Web / HTML</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 45%;"></div></div></div>
-                    <div class="skill-row"><span>CSS / Python</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 40%;"></div></div></div>
-                </div>
-
-                <div class="sidebar-item">
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
-                    <div class="skill-row"><span>DCSE (CGPA 3.56)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 92%;"></div></div></div>
-                    <div class="skill-row"><span>HSC (GPA 4.23)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 76%;"></div></div></div>
-                    <div class="skill-row"><span>SSC (GPA 4.57)</span><div class="bar-bg"><div class="bar-fill" style="--target-width: 70%;"></div></div></div>
-                </div>
-            </main>
+        <div class="section">
+            <h3><i class="fa-solid fa-user"></i> About Me</h3>
+            <p class="content-text">
+                I am a professional with a background in security supervision and a passion for modern web technology. I enjoy building clean, minimalist digital experiences and solving problems through code.
+            </p>
         </div>
 
-        <div class="footer-flex">
-            <div class="social-media">
+        <div class="section">
+            <h3><i class="fa-solid fa-location-dot"></i> Location</h3>
+            <p class="content-text">Chandpur, Bangladesh</p>
+        </div>
+
+        <div class="section">
+            <h3><i class="fa-solid fa-shield-halved"></i> Expertise</h3>
+            <div class="skill-row"><span>Supervision</span><div class="bar-bg"><div class="bar-fill" style="--w: 100%;"></div></div></div>
+            <div class="skill-row"><span>Leadership</span><div class="bar-bg"><div class="bar-fill" style="--w: 100%;"></div></div></div>
+            <div class="skill-row"><span>Communication</span><div class="bar-bg"><div class="bar-fill" style="--w: 100%;"></div></div></div>
+        </div>
+
+        <div class="section">
+            <h3><i class="fa-solid fa-bolt"></i> Skills</h3>
+            <div class="skill-row"><span>Negotiation</span><div class="bar-bg"><div class="bar-fill" style="--w: 100%;"></div></div></div>
+            <div class="skill-row"><span>Web / HTML</span><div class="bar-bg"><div class="bar-fill" style="--w: 45%;"></div></div></div>
+            <div class="skill-row"><span>CSS / Python</span><div class="bar-bg"><div class="bar-fill" style="--w: 40%;"></div></div></div>
+        </div>
+
+        <div class="section">
+            <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <div class="skill-row"><span>DCSE (CGPA 3.56)</span><div class="bar-bg"><div class="bar-fill" style="--w: 92%;"></div></div></div>
+            <div class="skill-row"><span>HSC (GPA 4.23)</span><div class="bar-bg"><div class="bar-fill" style="--w: 76%;"></div></div></div>
+            <div class="skill-row"><span>SSC (GPA 4.57)</span><div class="bar-bg"><div class="bar-fill" style="--w: 70%;"></div></div></div>
+        </div>
+
+        <div class="section">
+            <h3><i class="fa-solid fa-code"></i> Featured Project</h3>
+            <a href="https://6anik9.github.io/Career-Canvas/" target="_blank" class="project-card">
+                <div class="project-info">
+                    <h4>Career-Canvas</h4>
+                    <p>Professional CV Builder Platform</p>
+                </div>
+                <div class="project-link-icon">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p class="dev-credit">Developed by</p>
+            <div class="socials">
                 <a href="https://instagram.com/6mdaniksheikh9" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://github.com/6anik9" target="_blank"><i class="fa-brands fa-github"></i></a>
             </div>
-        </div>
+        </footer>
     </div>
 
 </body>
-</html>
+                                                </html>
