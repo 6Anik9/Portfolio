@@ -191,4 +191,4 @@ h3 {
     .profile-header { flex-direction: column-reverse; text-align: center; }
     .container { padding: 30px 20px; }
     .project-card:hover { transform: translateY(-5px); }
-}
+                                                                        }
