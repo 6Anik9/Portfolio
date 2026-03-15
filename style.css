@@ -178,7 +178,7 @@ h3 {
     left: 0;
 }
 
-/* --- FOOTER & SOCIALS FIXED --- */
+/* --- FOOTER FIXED --- */
 .footer {
     margin-top: 50px; 
     padding-top: 20px; 
@@ -191,23 +191,29 @@ h3 {
     color: var(--text-dim); 
     letter-spacing: 2px; 
     text-transform: uppercase; 
-    margin-bottom: 15px; 
+    margin-bottom: 20px; 
 }
 
 .socials { 
     display: flex; 
     justify-content: center; 
     align-items: center;
-    gap: 30px; /* Equal spacing between every element */
+    gap: 30px; 
 }
 
 .socials a { 
     color: var(--text-dim); 
-    font-size: 1.3rem; 
+    font-size: 1.4rem; 
     transition: all 0.3s ease; 
-    display: inline-flex;
-    width: 25px; /* Ensures the gap starts from the same width */
+    display: flex;
+    width: 32px; 
     justify-content: center;
+    text-decoration: none !important; /* Forces underline removal */
+}
+
+/* Specific fix for font-awesome ghost underlines */
+.socials a i {
+    text-decoration: none !important;
 }
 
 .socials a:hover { 
@@ -219,4 +225,5 @@ h3 {
     .profile-header { flex-direction: column-reverse; text-align: center; }
     .container { padding: 30px 20px; }
     .project-card:hover { transform: translateY(-5px); }
-}
+    .socials { gap: 35px; }
+    }
