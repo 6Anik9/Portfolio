@@ -210,10 +210,6 @@ h3 {
     text-decoration: none !important;
 }
 
-.socials a i {
-    text-decoration: none !important;
-}
-
 .socials a:hover { 
     color: var(--accent); 
     transform: translateY(-3px);
@@ -224,4 +220,4 @@ h3 {
     .container { padding: 30px 20px; }
     .project-card:hover { transform: translateY(-5px); }
     .socials { gap: 35px; }
-}
+    }
